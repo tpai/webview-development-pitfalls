@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>300ms Delay</title>
+  </head>
+  <style>
+    span {
+      font-size: 120px;
+      font-weight: bold;
+      color: lightblue;
+      cursor: pointer;
+      margin: 0 5px 0 0;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      height: calc(
+        100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+      );
+      height: calc(
+        100vh - constant(safe-area-inset-top) - constant(safe-area-inset-bottom)
+      );
+
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <span>3</span>
+    <span>0</span>
+    <span>0</span>
+    <span>m</span>
+    <span>s</span>
+    <script>
+      document.body.addEventListener("click", e => {
+        e.target.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Overscroll</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+      height: calc(
+        100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+      );
+      height: calc(
+        100vh - constant(safe-area-inset-top) - constant(safe-area-inset-bottom)
+      );
+      color: #333;
+      background: white;
+    }
+    #container {
+      padding: env(safe-area-inset-top) 0;
+      padding: constant(safe-area-inset-top) 0;
+      height: 100%;
+    }
+    #message {
+      font-size: 3rem;
+
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div id="message">
+        <span>⬇</span>
+        <span>Drag Down</span>
+      </div>
+    </div>
+    <script>
+      let _startY;
+      const container = document.querySelector("#container");
+      const message = document.querySelector("#message");
+
+      container.addEventListener("touchstart", e => {
+        _startY = e.touches[0].pageY;
+      });
+
+      container.addEventListener("touchmove", e => {
+        const y = e.touches[0].pageY;
+        if (
+          document.scrollingElement.scrollTop === 0 &&
+          y > _startY &&
+          !container.classList.contains("refreshing")
+        ) {
+          message.innerHTML = "<span>⬆</span><span>Look here</span>";
+          container.classList.add("refreshing");
+        }
+      });
+      container.addEventListener("touchend", e => {
+        message.innerHTML = "<span>⬇</span><span>Drag Down</span>";
+        container.classList.remove("refreshing");
+      });
+    </script>
+  </body>
+</html>

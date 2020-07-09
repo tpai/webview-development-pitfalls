@@ -1,0 +1,12 @@
+{
+  "name": "webview-development-pitfalls",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve demo"
+  },
+  "dependencies": {
+    "serve": "^11.3.2"
+  }
+}
