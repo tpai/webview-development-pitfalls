@@ -1,6 +1,6 @@
 # WebView Development Pitfalls
 
-Comparison between UIWebView and WKWebView.
+Comparison between UIWebView and WKWebView. (demo app project comes from https://github.com/wayou/WebViewExample)
 
 Slides:
 https://docs.google.com/presentation/d/e/2PACX-1vTYpd_Hr_gYDV9IBlnJLq41hj3BJ6XFukCGjkRBQKXVJGQNV4W8xOZHDEa2FWoxtQ/pub?start=false&loop=false
